@@ -1,0 +1,18 @@
+{
+  "name": "dp-front-end",
+  "description": "Bower tools for Digital Pulp",
+  "main": "",
+  "license": "GPL-2.0",
+  "homepage": "http://digitalpulp.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Swiper": "swiper#^3.3.1",
+    "formstone": "^1.1.3"
+  }
+}
