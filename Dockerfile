@@ -11,6 +11,6 @@ RUN chown -R www-data:www-data $HOME/*
 
 USER www-data
 WORKDIR $HOME
-RUN npm install && ./node_modules/.bin/bower/install
+RUN npm install && ./node_modules/.bin/bower install
 
 CMD /bin/true
