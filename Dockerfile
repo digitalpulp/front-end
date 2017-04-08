@@ -13,4 +13,4 @@ USER www-data
 WORKDIR $HOME
 #RUN npm install && ./node_modules/.bin/bower/install npm-shrinkwrap.json
 
-CMD tail -f /dev/null
+CMD /bin/true
