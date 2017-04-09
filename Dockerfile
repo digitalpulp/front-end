@@ -13,4 +13,5 @@ USER www-data
 WORKDIR $HOME
 RUN npm install && ./node_modules/.bin/bower install && npm cache clean
 
-CMD /bin/true
+# Need the container to stay up so node is available when needed.
+CMD tail -f /dev/null
