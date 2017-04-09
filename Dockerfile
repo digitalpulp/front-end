@@ -7,7 +7,7 @@ RUN addgroup -g 82 -S www-data \
   && apk add --no-cache make gcc g++ python git
 
 COPY package.json  bower.json gulpfile.js npm-shrinkwrap.json $HOME/
-RUN chown -R www-data:www-data $HOME/*
+RUN chown -R www-data:www-data $HOME/* && mkdir -p /var/www && chown -R www-data:www-data /var/www
 
 USER www-data
 WORKDIR $HOME
