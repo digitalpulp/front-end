@@ -1,6 +1,6 @@
 {
   "name": "dp-front-end",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Nodejs tools for Digital Pulp",
   "main": "gulpfile.js",
   "engines": {
@@ -9,7 +9,7 @@
   "dependencies": {
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
-    "bower": "^1.7.9",
+    "bower": "^1.8.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
