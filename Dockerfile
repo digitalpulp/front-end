@@ -6,11 +6,11 @@ RUN addgroup -g 82 -S www-data \
   && npm install --global npm@2.15.11 \
   && apk add --no-cache make gcc g++ python git
 
-COPY package.json  bower.json gulpfile.js npm-shrinkwrap.json entrypoint.sh $HOME/
-RUN chown -R www-data:www-data $HOME/* && mkdir -p /var/www && chown -R www-data:www-data /var/www && chmod 655 $HOME/entrypoint.sh
+COPY package.json  bower.json gulpfile.js npm-shrinkwrap.json entrypoint.sh ${HOME}/
+RUN chown -R www-data:www-data ${HOME}/* && mkdir -p /var/www && chown -R www-data:www-data /var/www && chmod 655 ${HOME}/entrypoint.sh
 
 USER www-data
-WORKDIR $HOME
+WORKDIR ${HOME}
 RUN npm install && ./node_modules/.bin/bower install && npm cache clean
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["${HOME}/entrypoint.sh"]
