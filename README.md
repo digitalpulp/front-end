@@ -9,7 +9,8 @@ This container builds two directories:
 ```
 front-end:
     image: digitalpulp/front-end:latest
-    command: ln -s /home/www-data/bower_components /var/www/docroot/themes/custom/yourtheme/bower_components && ln -s /home/www-data/node_modules /var/www/docroot/themes/custom/yourtheme/node_modules && tail -f /dev/null
+    environment:
+      THEME_NAME: project
     depends_on:
       - web
     volumes:
