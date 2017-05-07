@@ -14,4 +14,4 @@ USER www-data
 WORKDIR ${HOME}
 RUN npm install && ./node_modules/.bin/bower install && npm cache clean
 
-ENTRYPOINT ["${HOME}/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
