@@ -7,6 +7,14 @@ This container builds two directories:
 # Example docker-compose settings
 
 ```
+web:
+    image: drupaldocker/nginx
+    depends_on:
+      - database
+      - php
+    volumes:
+      - .:/var/www
+      - front_end:/var/www/front_end
 front-end:
     image: digitalpulp/front-end:latest
     environment:
@@ -14,9 +22,12 @@ front-end:
     depends_on:
       - web
     volumes:
-      - docroot:/var/www
+      - .:/var/www
+      - front_end:/var/www/front_end
     networks:
       - internal
+volumes:
+    front_end:
 ```
 
 A gulp build could then be triggered in your directory:
