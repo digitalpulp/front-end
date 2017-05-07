@@ -8,10 +8,10 @@ RUN addgroup -g 82 -S www-data \
 
 COPY package.json  bower.json gulpfile.js npm-shrinkwrap.json ${HOME}/
 COPY entrypoint.sh /usr/local/bin/
-RUN chown -R www-data:www-data ${HOME}/* && mkdir -p /var/www && chown -R www-data:www-data /var/www && chmod +x /usr/local/bin/entrypoint.sh
+RUN chown -R www-data:www-data ${HOME}/* && mkdir -p /var/www/front_end && chown -R www-data:www-data /var/www && chmod +x /usr/local/bin/entrypoint.sh
 
 USER www-data
 WORKDIR ${HOME}
-RUN npm install && ./node_modules/.bin/bower install && npm cache clean
+RUN npm install && ./node_modules/.bin/bower install && npm cache clean && mv ./node_modules /var/www/front_end && mv ./bower_components /var/www/front_end/bower_components
 
 ENTRYPOINT ["entrypoint.sh"]
