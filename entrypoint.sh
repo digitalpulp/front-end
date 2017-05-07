@@ -10,3 +10,4 @@ if ! [ -n ${THEME_NAME} -a -h /var/www/docroot/themes/custom/${THEME_NAME}/bower
     ln -s -f /home/www-data/bower_components /var/www/docroot/themes/custom/${THEME_NAME}/bower_components
 fi
 
+tail -f /dev/null
