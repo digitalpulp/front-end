@@ -12,6 +12,6 @@ RUN chown -R www-data:www-data ${HOME}/* && mkdir -p /var/www/front_end && chown
 
 USER www-data
 WORKDIR ${HOME}
-RUN npm install npm cache clean && mv ./node_modules /var/www/front_end
+RUN npm install && npm cache clean && mv ./node_modules /var/www/front_end
 
 ENTRYPOINT ["entrypoint.sh"]
