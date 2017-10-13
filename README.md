@@ -1,8 +1,9 @@
 # Overview
-This container builds two directories:
+This container builds one directory:
 
-- /home/www-data/bower_components
 - /home/www-data/node_modules
+
+Which is then symlinked into the Drupal theme set via environment variables.
 
 # Example docker-compose settings
 
@@ -17,8 +18,8 @@ web:
       - front_end:/var/www/front_end
 front-end:
     image: digitalpulp/front-end:latest
-    environment:
-      THEME_NAME: project
+environment:
+      THEME_NAME: your_name
     depends_on:
       - web
     volumes:
@@ -26,6 +27,7 @@ front-end:
       - front_end:/var/www/front_end
     networks:
       - internal
+    working_dir: /var/www/docroot/themes/custom/your_name
 volumes:
     front_end:
 ```
