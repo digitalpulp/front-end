@@ -1,9 +1,5 @@
 # Overview
-This container builds one directory:
-
-- /home/www-data/node_modules
-
-Which is then symlinked into the Drupal theme set via environment variables.
+This container provides node and npm. If a Drupal theme set via environment variables and a package.json is present then npm install is run by the entrypoint script.
 
 # Example docker-compose settings
 
@@ -24,10 +20,9 @@ environment:
       - web
     volumes:
       - .:/var/www
-      - front_end:/var/www/front_end
     networks:
       - internal
-    working_dir: /var/www/docroot/themes/custom/your_name
+    working_dir: /var/www/docroot/themes/custom/{site_theme_name}
 volumes:
     front_end:
 ```

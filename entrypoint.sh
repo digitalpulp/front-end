@@ -1,9 +1,9 @@
 #! /bin/sh
 
-# If theme name is set and a symlink is not already present,
-# create a symlink for the node modules.
-if ! [ -n ${THEME_NAME} -a -h /var/www/docroot/themes/custom/${THEME_NAME}/node_modules ]; then
-    ln -s -f /var/www/front_end/node_modules /var/www/docroot/themes/custom/${THEME_NAME}/node_modules
+# If theme name is set and a package.json is present,
+# build the node modules.
+if ! [ -n ${THEME_NAME} -a -r /var/www/docroot/themes/custom/${THEME_NAME}/package.json ]; then
+    npm install
 fi
 # Keep the container present.
 tail -f /dev/null
