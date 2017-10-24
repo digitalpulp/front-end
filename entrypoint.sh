@@ -8,7 +8,7 @@ fi
 # compile the theme.
 if [ -n ${THEME_NAME} -a -r /var/www/docroot/themes/custom/${THEME_NAME}/gulpfile.js ]; then
     node_modules/.bin/gulp build
-    touch COMPILED.txt
+    touch INITIALIZED.txt
 fi
 # Keep the container present.
 tail -f /dev/null
