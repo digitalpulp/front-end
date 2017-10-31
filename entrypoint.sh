@@ -12,5 +12,7 @@ if [ -n ${THEME_NAME} -a -r /var/www/docroot/themes/custom/${THEME_NAME}/gulpfil
     node_modules/.bin/gulp build
     touch INITIALIZED.txt
 fi
-# Keep the container present.
-tail -f /dev/null
+# Keep the container present if not in a CI, otherwise exit.
+if [ -z ${CI_BUILD_ID} ]; then
+  tail -f /dev/null
+fi
