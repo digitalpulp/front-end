@@ -8,7 +8,7 @@ if [ -n ${THEME_NAME} -a -r /var/www/docroot/themes/custom/${THEME_NAME}/package
 fi
 # compile the theme.
 if [ -n ${THEME_NAME} -a -r /var/www/docroot/themes/custom/${THEME_NAME}/gulpfile.js ]; then
-    touch COMPILING.TXT
+    touch COMPILING.txt
     node_modules/.bin/gulp build
     touch INITIALIZED.txt
 fi
