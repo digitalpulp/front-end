@@ -11,6 +11,11 @@ if [ -n ${THEME_NAME} -a -r /var/www/docroot/themes/custom/${THEME_NAME}/gulpfil
     touch COMPILING.txt
     node_modules/.bin/gulp build
     touch INITIALIZED.txt
+elif [ -n ${THEME_NAME} -a -r /var/www/docroot/themes/custom/${THEME_NAME}/Gruntfile.js ]; then
+    touch COMPILING.txt
+    export GRUNT_TARGET=dist
+    node_modules/.bin/grunt build
+    touch INITIALIZED.txt
 fi
 # Keep the container present if not in a CI, otherwise exit.
 if [ -z ${CI_BUILD_ID} ]; then
