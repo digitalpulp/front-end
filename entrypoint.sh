@@ -4,6 +4,10 @@ WORKING_DIR="/var/www/docroot/themes/custom"
 if [ -n ${THEME_PATH} ]; then
     WORKING_DIR=${THEME_PATH}
 fi
+# If theme name is set, make sure we are in that directory.
+if [ -n ${THEME_NAME} ]; then
+  cd ${WORKING_DIR}/${THEME_NAME}
+fi
 # If theme name is set and a package.json is present,
 # build the node modules.
 if [ -n ${THEME_NAME} -a -r ${WORKING_DIR}/${THEME_NAME}/package.json ]; then
