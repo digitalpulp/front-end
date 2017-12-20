@@ -1,9 +1,6 @@
 #! /bin/sh
 
-WORKING_DIR="/var/www/docroot/themes/custom"
-if [ -n ${THEME_PATH} ]; then
-    WORKING_DIR=${THEME_PATH}
-fi
+WORKING_DIR=${THEME_PATH:-"/var/www/docroot/themes/custom"}
 # If theme name is set, make sure we are in that directory.
 if [ -n ${THEME_NAME} ]; then
   cd ${WORKING_DIR}/${THEME_NAME}
