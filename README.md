@@ -14,7 +14,7 @@ web:
       - front_end:/var/www/front_end
 front-end:
     image: digitalpulp/front-end:latest
-environment:
+    environment:
       THEME_NAME: your_name
     depends_on:
       - web
@@ -32,3 +32,8 @@ A gulp build could then be triggered in your directory:
 ```
 docker-compose exec front-end /var/www/docroot/themes/custom/yourtheme/node_modules/.bin/gulp build
 ```
+
+If your theme is not located in the container at
+`/var/www/docroot/themes/custom` then set the additional environment variable
+`THEME_PATH` to the proper path in the `environment` key within your
+docker-compose.yml
