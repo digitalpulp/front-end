@@ -1,6 +1,8 @@
 # Overview
 This container provides node and npm. If a Drupal theme set via environment variables and a package.json is present then npm install is run by the entrypoint script.
 
+Current node version included is 8.12.0
+
 # Example docker-compose settings
 
 ```
