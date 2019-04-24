@@ -1,4 +1,4 @@
-FROM digitalpulp/front-end:codeship
+FROM digitalpulp/front-end:codeship-10
 LABEL maintainer="digitalpulp"
 
 ENTRYPOINT ["entrypoint.sh"]
