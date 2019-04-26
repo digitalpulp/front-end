@@ -5,11 +5,15 @@ WORKING_DIR=${THEME_PATH:-"/var/www/docroot/themes/custom"}
 if [ -n ${THEME_NAME} ]; then
   cd ${WORKING_DIR}/${THEME_NAME}
 fi
-# If theme name is set and a package.json is present,
+# If theme name is set and a package-lock.json is present and not in CI,
 # build the node modules.
-if [ -n ${THEME_NAME} -a -r ${WORKING_DIR}/${THEME_NAME}/package.json ]; then
+if [ -n ${THEME_NAME} -a -r ${WORKING_DIR}/${THEME_NAME}/package-lock.json -a -z ${CI_BUILD_ID} ]; then
     touch BUILDING.txt
-    npm install
+    npm install --no-save
+elif [ -n ${THEME_NAME} -a -r ${WORKING_DIR}/${THEME_NAME}/package-lock.json -a -n ${CI_BUILD_ID} ]; then
+    # in CI - install node modules with ci command.
+    touch BUILDING.txt
+    npm ci
 fi
 # compile the theme.
 if [ -n ${THEME_NAME} -a -r ${WORKING_DIR}/${THEME_NAME}/gulpfile.js ]; then
