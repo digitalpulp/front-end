@@ -2,4 +2,4 @@ FROM mhart/alpine-node:10
 LABEL maintainer="digitalpulp"
 
 COPY entrypoint.sh /usr/local/bin/
-RUN apk add --no-cache make gcc g++ python git && chmod ugo=rx /usr/local/bin/entrypoint.sh
+RUN apk add --no-cache make gcc g++ python git libtool automake autoconf nasm zlib-dev zlib && chmod ugo=rx /usr/local/bin/entrypoint.sh
