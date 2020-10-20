@@ -8,7 +8,7 @@ WORKING_DIR=${THEME_PATH:-"/var/www/docroot/themes/custom"}
 
 THEME_DIR="${WORKING_DIR}/${THEME_NAME}"
 
-[ ! -d "$THEME_DIR" ] && mkdir -p "$THEME_DIR"
+[ ! -f "$THEME_DIR/.node-version" ] && echo "Error, .node-version file not present in theme directory ${THEME_DIR}. Exiting front-end." && exit 1
 
 # Execute node-build "nodenv install" command from the theme directory.
 # Pass the "-s" flag to skip installing versions that already exist in 
