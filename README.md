@@ -1,7 +1,5 @@
 # Overview
-This container provides node and npm. If a Drupal theme set via environment variables and a package.json is present then npm install is run by the entrypoint script.
-
-Current node version included is 10.15.0
+This container provides nodenv, which provides shims for different versions of node and npm. If a Drupal theme set via environment variables and a .node-version file is present then nodenv install is executed from the theme folder to ensure the specified version of node exists in the image.
 
 # Example docker-compose settings
 

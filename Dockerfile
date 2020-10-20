@@ -1,5 +1,8 @@
-FROM digitalpulp/front-end:codeship-10
+FROM conchoid/docker-nodenv-builtins
 LABEL maintainer="digitalpulp"
+
+COPY entrypoint.sh /usr/local/bin/
+RUN apk add --no-cache make gcc g++ python git && chmod ugo=rx /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
 
