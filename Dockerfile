@@ -16,7 +16,8 @@ ENV PATH "$NODENV_ROOT/shims:$NODENV_ROOT/bin:$PATH"
 # Install and setup nodenv
 # @see https://github.com/conchoid/docker-nodenv/blob/master/12.18.3-stretch/Dockerfile
 # @see https://github.com/conchoid/docker-nodenv/blob/master/8.14.0-alpine3.8/Dockerfile
-RUN apk add --no-cache curl python git bash build-base binutils-gold linux-headers openssl openssl-dev python2-dev libtool automake autoconf nasm zlib-dev zlib \
+RUN apk update \
+&& apk add --no-cache curl python git bash build-base binutils-gold linux-headers openssl openssl-dev python2-dev libtool automake autoconf nasm zlib-dev zlib c-ares \
 && nodenv_version="v1.4.0" \
 && git clone https://github.com/nodenv/nodenv.git ${NODENV_ROOT} \
 && cd ${NODENV_ROOT} && git checkout ${nodenv_version} \
