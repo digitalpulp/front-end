@@ -15,22 +15,24 @@ web:
 front-end:
     image: digitalpulp/front-end:latest
     environment:
-      THEME_NAME: your_name
+      THEME_NAME: yourtheme
     depends_on:
       - web
     volumes:
       - .:/var/www
     networks:
       - internal
-    working_dir: /var/www/docroot/themes/custom/{site_theme_name}
+    working_dir: /var/www/docroot/themes/custom/yourtheme
 volumes:
     front_end:
 ```
+Place a [.node_version](https://github.com/nodenv/nodenv/blob/master/README.md#choosing-the-node-version) file in your
+theme directory.  When the container mounts, that version of node will be installed.
 
-A gulp build could then be triggered in your directory:
+Node module installation could then be triggered in your directory:
 
 ```
-docker-compose exec front-end /var/www/docroot/themes/custom/yourtheme/node_modules/.bin/gulp build
+docker-compose exec front-end /var/www/docroot/themes/custom/yourtheme/npm install
 ```
 
 If your theme is not located in the container at
