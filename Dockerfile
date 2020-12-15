@@ -77,5 +77,3 @@ RUN mkdir -p "${NODENV_ROOT}/versions/${NODE12}/bin/" "${NODENV_ROOT}/versions/$
 ENTRYPOINT ["entrypoint.sh"]
 
 VOLUME /var/www
-
-USER www-data
