@@ -1,5 +1,8 @@
 # Overview
-This container provides nodenv, which provides shims for different versions of node and npm. If a Drupal theme set via environment variables and a .node-version file is present then nodenv install is executed from the theme folder to ensure the specified version of node exists in the image.
+This container provides nodenv, which provides shims for different versions of
+node and npm. If a Drupal theme set via environment variables and a 
+.node-version file is present then nodenv install is executed from the theme 
+folder to ensure the specified version of node exists in the image.
 
 # Example docker-compose settings
 
@@ -41,9 +44,9 @@ If your theme is not located in the container at
 docker-compose.yml
 
 # Pre-built node versions
-The following are baked into the image:
-- 10.23.0
-- 12.20.0
+The following are baked into the image for version 2.0:
+- 10.24.1
+- 12.22.1
 
 # Available build definitions
 The following node versions have build definitions, as shown by `nodenv install --list`
@@ -518,6 +521,7 @@ The following node versions have build definitions, as shown by `nodenv install 
 10.23.2
 10.23.3
 10.24.0
+10.24.1
 11.0.0
 11.x-dev
 11.x-next
@@ -577,6 +581,8 @@ The following node versions have build definitions, as shown by `nodenv install 
 12.20.1
 12.20.2
 12.21.0
+12.22.0
+12.22.1
 13.0.0
 13.x-dev
 13.x-next
@@ -622,6 +628,7 @@ The following node versions have build definitions, as shown by `nodenv install 
 14.15.4
 14.15.5
 14.16.0
+14.16.1
 15.0.0
 15.0.1
 15.1.0
@@ -636,6 +643,10 @@ The following node versions have build definitions, as shown by `nodenv install 
 15.8.0
 15.9.0
 15.10.0
+15.11.0
+15.12.0
+15.13.0
+15.14.0
 chakracore-dev
 chakracore-nightly
 chakracore-8.1.2

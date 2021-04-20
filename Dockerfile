@@ -32,7 +32,7 @@ RUN nodenv_version="v1.4.0" \
   && git clone https://github.com/nodenv/nodenv.git ${NODENV_ROOT} \
   && cd ${NODENV_ROOT} && git checkout ${nodenv_version} \
   && src/configure && make -C src \
-  && node_build_version="v4.9.31" \
+  && node_build_version="v4.9.37" \
   && git clone https://github.com/nodenv/node-build.git ${NODENV_ROOT}/plugins/node-build \
   && cd ${NODENV_ROOT}/plugins/node-build && git checkout ${node_build_version} \
   && node_build_jxcore_version="1b6cdf343b767e77b9f1522d5c9fa111c5373794" \
@@ -45,8 +45,8 @@ RUN nodenv_version="v1.4.0" \
 
 # Install our most used node versions.
 # @see https://github.com/conchoid/docker-nodenv-builtins/blob/master/12.18.3-stretch/Dockerfile
-ENV NODE10 "10.23.0"
-ENV NODE12 "12.20.0"
+ENV NODE10 "10.24.1"
+ENV NODE12 "12.22.1"
 ENV PREINSTALLED_VERSIONS  "\
 ${NODE10}\n\
 ${NODE12}"
