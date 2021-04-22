@@ -1,6 +1,6 @@
-FROM node:10.23.0-slim AS node10
+FROM node:10.24.1-slim AS node10
 
-FROM node:12.20.0-stretch-slim
+FROM node:12.22.1-stretch-slim
 
 LABEL maintainer="digitalpulp"
 
@@ -53,6 +53,7 @@ ${NODE12}"
 
 COPY --from=node10 "/usr/local/bin/node" "${NODENV_ROOT}/versions/${NODE10}/bin/"
 COPY --from=node10 "/usr/local/lib/node_modules" "${NODENV_ROOT}/versions/${NODE10}/lib/node_modules"
+COPY bashrc /root/.bashrc
 
 RUN mkdir -p "${NODENV_ROOT}/versions/${NODE12}/bin/" "${NODENV_ROOT}/versions/${NODE12}/lib/" \
     && cp "$(nodenv which node)" "${NODENV_ROOT}/versions/${NODE12}/bin/" \
