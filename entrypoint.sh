@@ -18,9 +18,4 @@ cd ${THEME_DIR} && nodenv install -s || true
 # Keep the container present if not in a CI, otherwise exit.
 if [ -z ${CI_BUILD_ID} ]; then
   tail -f /dev/null
-elif [ -r ${THEME_DIR}/gulpfile.js ]; then
-  #compile the theme
-  mkdir node_modules
-  npm ci
-  node_modules/.bin/gulp build
 fi
