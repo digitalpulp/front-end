@@ -40,8 +40,7 @@ RUN nodenv_version="v1.4.0" \
   && cd $(nodenv root)/plugins/node-build-jxcore && git checkout ${node_build_jxcore_version} \
   && npm_migrate_version="v0.1.1" \
   && git clone https://github.com/nodenv/nodenv-npm-migrate.git ${NODENV_ROOT}/plugins/nodenv-npm-migrate \
-  && cd ${NODENV_ROOT}/plugins/nodenv-npm-migrate && git checkout ${npm_migrate_version} \
-  && find ${NODENV_ROOT} -type d -name ".git" -exec rm -r "{}" \+
+  && cd ${NODENV_ROOT}/plugins/nodenv-npm-migrate && git checkout ${npm_migrate_version}
 
 # Install our most used node versions.
 # @see https://github.com/conchoid/docker-nodenv-builtins/blob/master/12.18.3-stretch/Dockerfile
