@@ -32,7 +32,7 @@ RUN nodenv_version="v1.4.0" \
   && git clone https://github.com/nodenv/nodenv.git ${NODENV_ROOT} \
   && cd ${NODENV_ROOT} && git checkout ${nodenv_version} \
   && src/configure && make -C src \
-  && node_build_version="v4.9.37" \
+  && node_build_version="v4.9.127" \
   && git clone https://github.com/nodenv/node-build.git ${NODENV_ROOT}/plugins/node-build \
   && cd ${NODENV_ROOT}/plugins/node-build && git checkout ${node_build_version} \
   && node_build_jxcore_version="1b6cdf343b767e77b9f1522d5c9fa111c5373794" \
